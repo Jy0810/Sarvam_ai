@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101522">
+  <title>Voice Research Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="eyebrow">SARVAM × GEMINI</div>
+      <h1>Voice Research Assistant</h1>
+      <p class="subtitle">Ask in English or an Indian language. Get a spoken answer with web sources when research is needed.</p>
+    </header>
+    <section class="panel controls">
+      <div class="field-row">
+        <label for="language">Answer language</label>
+        <select id="language">
+          <option value="">Auto / match question</option><option value="English">English</option>
+          <option value="Telugu">తెలుగు (Telugu)</option><option value="Hindi">हिन्दी (Hindi)</option>
+          <option value="Tamil">தமிழ் (Tamil)</option><option value="Kannada">ಕನ್ನಡ (Kannada)</option>
+          <option value="Malayalam">മലയാളം (Malayalam)</option><option value="Marathi">मराठी (Marathi)</option>
+          <option value="Bengali">বাংলা (Bengali)</option><option value="Gujarati">ગુજરાતી (Gujarati)</option>
+          <option value="Punjabi">ਪੰਜਾਬੀ (Punjabi)</option><option value="Odia">ଓଡ଼ିଆ (Odia)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <label for="research">Web research</label>
+        <select id="research"><option value="auto">Automatic</option><option value="true">Always search</option><option value="false">Skip search</option></select>
+      </div>
+      <div class="button-row">
+        <button id="record" class="primary" type="button"><span id="recordIcon">●</span> <span id="recordLabel">Start recording</span></button>
+        <button id="stop" class="secondary" type="button" disabled>Stop & ask</button>
+      </div>
+      <p class="hint">For the first version, record one short question (up to 30 seconds). Your microphone is used only after you press Start.</p>
+      <div id="status" class="status" role="status" aria-live="polite">Ready. Configure your API keys on the server to begin.</div>
+    </section>
+    <section class="panel">
+      <h2>Or type your question</h2>
+      <form id="textForm">
+        <textarea id="query" rows="3" maxlength="4000" placeholder="e.g. Explain the difference between CTC and RNN-T in long-form ASR." required></textarea>
+        <button class="primary" type="submit" id="sendText">Ask assistant</button>
+      </form>
+    </section>
+    <section id="result" class="panel result" hidden>
+      <div class="result-head"><h2>Answer</h2><span id="timing" class="timing"></span></div>
+      <div class="subhead">Transcript</div><p id="transcript" class="transcript"></p>
+      <div class="subhead">Response</div><p id="answer" class="answer"></p>
+      <audio id="player" controls preload="none"></audio>
+      <div id="sourcesWrap" hidden><h3>Sources</h3><ul id="sources"></ul></div>
+      <details><summary>Timing breakdown</summary><pre id="timings"></pre></details>
+    </section>
+    <footer>API keys stay on the backend. Research citations are provided when OpenAI returns web citations.</footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
