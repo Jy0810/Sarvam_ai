@@ -133,3 +133,5 @@ Tests do not call external APIs and do not require keys. To test live integratio
 - Sarvam TTS streaming: <https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/streaming-api/http-stream>
 - OpenAI Responses API: <https://developers.openai.com/api/docs/guides/migrate-to-responses>
 - OpenAI web search: <https://developers.openai.com/api/docs/guides/tools-web-search>
+
+- Versal Link - https://sarvam-ai-eight.vercel.app/
